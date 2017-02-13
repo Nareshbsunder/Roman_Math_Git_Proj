@@ -1,0 +1,41 @@
+This is the "Roman math" from the Check tutorial.
+
+This demonstrates using Check along with one of one build systems:
+autotools
+========================
+Autotools:
+
+You need the following programs installed on your system:
+  -- Autoconf 2.59
+  -- Automake 1.9.6
+  -- Libtool 1.5.22
+  -- Check 0.9.9
+
+Somewhat earlier versions of these programs might work.
+
+Then, do as follows:
+
+$ autoreconf --install
+$ ./configure
+$ make
+$ make check
+
+Don't do "make install" unless you want to install the roman math.
+
+Roman_Math.c and Roman_Math.h are built as a library.  src/main.c:main() is a
+client of libRoman_Math.la, just as tests/Roman_Math_test.c:main() is a client
+of libRoman_Math.la
+
+To use the autotools example in another project, start with the following
+files:
+
+   example
+   |--- configure.ac
+   |--- Makefile.am
+   |--- src
+   |    |--- Makefile.am
+   |--- tests
+        |--- Makefile.am
+
+Please send bug reports to check-devel AT lists.sourceforge.net.
+

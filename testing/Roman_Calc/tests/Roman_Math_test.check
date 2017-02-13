@@ -1,0 +1,36 @@
+#include "Roman_Math.h"
+
+static void Check_subtraction(char *Firstnum, char *Secondnum, char *expected_result) {
+    const char oper = '-';
+	char *actual_result = Compute_Roman_Math(Firstnum, Secondnum, oper);
+	ck_assert_msg(
+			strcmp(expected_result, actual_result) == 0,
+			"%s - %s: expected %s, but was %s",
+			Firstnum, Secondnum, expected_result, actual_result);	       
+}
+static void Check_addition(char *Firstnum, char *Secondnum, char *expected_result) {
+	const char oper = '+';	
+	char *actual_result = Compute_Roman_Math(Firstnum, Secondnum, oper);
+	ck_assert_msg(
+			strcmp(expected_result, actual_result) == 0,
+			"%s + %s: expected %s, but was %s",
+			Firstnum, Secondnum, expected_result, actual_result);	       
+}
+#test add_by_repetition
+	Check_addition("I", "I", "II");
+	Check_addition("I", "II", "III");
+	Check_addition("XX", "X", "XXX");
+	Check_addition("C", "C", "CC");
+	Check_addition("M", "MM", "MMM");
+#test add_by_concatenation
+	Check_addition("X", "I", "XI");
+	Check_addition("MCX", "XV", "MCXXV");
+	Check_addition("DCI", "II", "DCIII");
+	Check_addition("LX", "XVI", "LXXVI");
+#test subtract
+	Check_subtraction("II", "I", "I");
+	Check_subtraction("III", "I", "II");
+	Check_subtraction("XXX", "XX", "X");
+	Check_subtraction("MMLXI", "MI", "MLX");
+	Check_subtraction("MMDCCLXXVII", "DLV", "MMCCXXII");
+	
