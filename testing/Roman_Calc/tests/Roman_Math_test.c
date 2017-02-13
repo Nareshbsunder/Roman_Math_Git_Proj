@@ -32,7 +32,7 @@ START_TEST(add_by_repetition)
 	Check_addition("XX", "X", "XXX");
 	Check_addition("C", "C", "CC");
 	Check_addition("M", "MM", "MMM");
-        Check_addition("K", "K", "Not A Roman Number");
+        Check_addition("K", "K", "BADROMANNUMBER");
 }
 END_TEST
 

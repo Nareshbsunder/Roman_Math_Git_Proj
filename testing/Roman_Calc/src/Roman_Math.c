@@ -10,6 +10,10 @@ static const int MAX_POSSIBLE_LENGTH_OF_NUMERAL = 16;
 char *convert_to_Roman(int number)
 {
 	char *roman = calloc(MAX_POSSIBLE_LENGTH_OF_NUMERAL, sizeof(char));
+        if (number == 0)
+        {
+	    strcat(roman,"BADROMANNUMBER");
+        }
 	while (number > 0)
 	{
 	    strcat(roman,"\0");
@@ -43,7 +47,7 @@ char *convert_to_Roman(int number)
 			strcat(roman,"V");
 			number -= 5;
 		}
-		else
+		else 
 		{
 			strcat(roman,"I");
 			number -= 1;
@@ -86,7 +90,7 @@ int convert_to_decimal(char *roman)
 			number += 1;
 			break;
 		default:
-			printf("Data error\n");
+			printf("Dataerror\n");
 		}
 	}
 	return number;
