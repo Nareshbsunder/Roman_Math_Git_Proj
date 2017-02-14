@@ -1,4 +1,2 @@
 Running suite(s): Core
-33%: Checks: 3, Failures: 2, Errors: 0
-Roman_Math_test.check:17:F:Core:add_by_concatenation:0: MCMVIII + CXLI: expected MMXLIX, but was MMCCLXVIIII
-Roman_Math_test.check:9:F:Core:subtract:0: XLV - V: expected XL, but was LX
+100%: Checks: 3, Failures: 0, Errors: 0
