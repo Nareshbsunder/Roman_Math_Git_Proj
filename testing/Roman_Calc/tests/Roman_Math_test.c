@@ -32,7 +32,6 @@ START_TEST(add_by_repetition)
 	Check_addition("XX", "X", "XXX");
 	Check_addition("C", "C", "CC");
 	Check_addition("M", "MM", "MMM");
-        Check_addition("K", "K", "BADROMANNUMBER");
 }
 END_TEST
 
@@ -43,17 +42,25 @@ START_TEST(add_by_concatenation)
 	Check_addition("MCX", "XV", "MCXXV");
 	Check_addition("DCI", "II", "DCIII");
 	Check_addition("LX", "XVI", "LXXVI");
+	Check_addition("LX", "XVI", "LXXVI");
+	Check_addition("X", "VII", "XVII");
+	Check_addition("XXXII", "XXV", "LVII");
+	Check_addition("MCMVIII", "CXLI", "MMXLIX");
 }
 END_TEST
 
 START_TEST(subtract)
 {
 #line 31
+    Check_subtraction("XLV", "V", "XL");
 	Check_subtraction("II", "I", "I");
 	Check_subtraction("III", "I", "II");
 	Check_subtraction("XXX", "XX", "X");
+	Check_subtraction("MDIV", "D", "MIV");
 	Check_subtraction("MMLXI", "MI", "MLX");
 	Check_subtraction("MMDCCLXXVII", "DLV", "MMCCXXII");
+	Check_subtraction("MDXXIV", "CXLIV", "MCCCLXXX");
+	Check_subtraction("M", "C", "CM");
 	
 }
 END_TEST
